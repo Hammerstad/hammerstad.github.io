@@ -2,24 +2,25 @@
 layout: default
 ---
 
-<div class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date_to_string }}</span>
-  {{ content }}
-</div>
-
+{% assign post = page %}
+{% include post.html %}
+{% assign psize = site.related_posts | size %}
+{% if rpsize and rpsize != 0 %}
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
-    {% for post in site.related_posts limit:3 %}
-      <li>
-        <h3>
-          <a href="{{ post.url }}">
-            {{ post.title }}
-            <small>{{ post.date | date_to_string }}</small>
-          </a>
-        </h3>
-      </li>
+    {% for related in site.related_posts limit:3 %}
+    <li>
+      <h3>
+        <a href="{{ related.url }}">
+          <small>{{ related.date | date_to_long_string | upcase }}</small>
+          {{ related.title }}
+        </a>
+      </h3>
+    </li>
     {% endfor %}
   </ul>
 </div>
+{% endif %}
+
+{% include disqus.html %}

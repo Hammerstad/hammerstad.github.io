@@ -1,0 +1,41 @@
+.post-tag {
+    color: gray;
+    font-size: smaller;
+}
+
+.tags-subheader {
+    margin-top: -0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.post-date {
+    font-size: smaller;
+}
+
+h1.post-title {
+    font-weight: 400;
+}
+
+h2, h3, h4, h5, h6, h7 {
+    font-weight: 400;
+}
+
+.sidebar {
+    background-color: #303538;
+}
+
+@media (min-width: 48em) {
+    .sidebar {
+        width: 24rem;
+    }
+    .content {
+        max-width: 42rem;
+        margin-left: 25rem;
+    }
+}
+
+@media (min-width: 64em) {
+    .content {
+        margin-left: 26rem;
+    }
+}
